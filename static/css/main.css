@@ -1,3 +1,16 @@
 h3 {
   font-style: italic;
 }
+
+li {
+  list-style: none;
+  padding: 2px;
+}
+
+.blog-title {
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.blog-body {
+  font-size: 14px;
+}
