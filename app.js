@@ -2,7 +2,14 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const fs = require('fs')
-// app.get('/', (req, res) => res.end('hello world'))
+//parse forms
+const bodyParser = require('body-parser')
+//generate ids for new posts to write in file
+const uuid = require('uuid/v1')
+
+const urlencodedParser = bodyParser.urlencoded({
+  extended: false
+})
 
 app.listen(3000, () => console.log('Listening on port 3000'))
 
@@ -33,4 +40,19 @@ app.get('/blogs/:id', (req, res) => {
 
 app.get('/new', (req, res) => {
   res.render('new');
+})
+
+app.post('/', urlencodedParser, (req, res) => {
+  
+  const newBlog = {
+    author: req.body.author || 'anon',
+    title: req.body.title || 'BLOG TITLE',
+    _id: uuid(),
+    body: req.body.blog_body || 'Just blog things',
+    updatedAt: Date.now(),
+    createdAt: Date.now()
+  };
+  blogArray.push(newBlog);
+  fs.writeFileSync('./seeds/blogs.json', JSON.stringify(blogArray, null, 2));
+  res.redirect('/');
 })
