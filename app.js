@@ -39,6 +39,11 @@ app.get('/', (req, res) => {
 
 });
 
+app.get('/new', (req, res) => {
+  console.log("new");
+  res.render('new');
+});
+
 app.get('/:id', (req, res) => {
   const blogFile = fs.readFileSync('./seeds/blogs.json', 'utf-8')
   const blogArray = JSON.parse(blogFile)
@@ -52,9 +57,7 @@ app.get('/:id', (req, res) => {
   });
 });
 
-app.get('/new', (req, res) => {
-  res.render('new');
-});
+
 
 app.post('/', urlencodedParser, (req, res) => {
   const blogFile = fs.readFileSync('./seeds/blogs.json', 'utf-8')
