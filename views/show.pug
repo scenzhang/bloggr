@@ -2,5 +2,9 @@ extends layout.pug
 
 block content
   h3= blog.title
+  a(href=`/${blog._id}/edit`) Edit this
+   form(method="POST", action=`/${blog._id}?_method=DELETE`)
+      input(type="submit", value="delet this")
   p= blog.author
   = blog.body
+  p: a(href="/") Return to Index

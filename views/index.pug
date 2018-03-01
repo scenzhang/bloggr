@@ -4,7 +4,7 @@ block content
   ul
     each blog in blogs
       
-      li.blog-title: a(href=`/blogs/${blog._id}`)= blog.title
+      li.blog-title: a(href=`/${blog._id}`)= blog.title
       li.blog-author= `by ${blog.author}`
 
       

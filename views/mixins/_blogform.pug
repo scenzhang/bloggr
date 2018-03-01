@@ -8,4 +8,4 @@ mixin blogForm(blog = {}, action='/')
     label(for="blog_body") Blog Body
     textarea(id="blog_body", name="blog_body")= blog.body
     input(type="submit")
-  a(href="/") Return to Index
+  p: a(href="/") Return to Index
