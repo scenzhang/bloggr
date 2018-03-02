@@ -55,7 +55,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/new', (req, res) => {
-  console.log("new");
   res.render('new');
 });
 
